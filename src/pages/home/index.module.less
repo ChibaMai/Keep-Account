@@ -1,0 +1,33 @@
+.Home {
+  position: relative;
+
+  .LunarSurface {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    margin-block: 15px;
+    color: var(--tab-bar-color);
+  }
+
+  table {
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    overflow-y: scroll;
+  }
+
+  tr, td, th {
+    border: 1px solid var(--adm-color-border);
+    padding: 10px;
+    transition: all 300ms;
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: var(--table-tr-color-background);
+  }
+
+  tr:hover {
+    background-color: var(--table-tr-color-background);
+  }
+}
+

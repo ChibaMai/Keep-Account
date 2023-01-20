@@ -1,0 +1,93 @@
+.header {
+  position: sticky;
+  top: 0px;
+  z-index: 8;
+  background-image: var(--adm-linear-gradient);
+  color: var(--adm-color-white);
+  padding-block: 20px;
+  padding-inline: 20px;
+  display: flex;
+  justify-content: space-between;
+
+  // 总收入
+  .TotalRevenue {
+
+    .subText {
+      font-size: 13px;
+      user-select: none;
+      // margin-inline-end: 5px;
+    }
+
+    .money {
+      font-weight: bold;
+      font-size: 32px;
+    }
+  }
+
+  // choose 选择
+  .choose {
+    // width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      width: 180px;
+      height: 50px;
+
+      &:last-child {
+        margin-inline-start: 20px;
+      }
+    }
+  }
+}
+
+// 类型选择
+.TypeSelection {
+  background-color: var(--adm-color-background);
+
+  .PopTitle {
+    text-align: center;
+    font-size: 18px;
+    line-height: 118px;
+  }
+
+  // 内容
+  .PopContent {
+    padding-block-start: 30px;
+    padding-inline: 30px;
+    padding-block-end: 20px;
+    // height: 200px;
+    background-color: var(--adm-color-background);
+  }
+
+  // 支出
+  .ExpenditureContent {
+
+    .ExpenditureList {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      font-size: 16px;
+      user-select: none;
+    }
+  
+    .ListItem {
+      padding-block: 15px;
+      padding-inline: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      margin-block-end: 10px;
+      background-color: var(--adm-color-background);
+      border: 1px solid var(--adm-color-border);
+      cursor: pointer;
+    }
+    
+    .ActiveCurrent {
+      background-color: #1677ff;
+      color: var(--adm-color-white);
+    }
+  }
+}

@@ -1,0 +1,7 @@
+node_modules
+/.github/FUNDING.yml
+package-lock.json
+yarn.lock
+.vscode/*
+.idea/*
+Footer

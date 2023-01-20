@@ -1,0 +1,89 @@
+:root {
+  font-size: 17px;
+  font-family: "Roboto,Arial,sans-serif";
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #213547;
+  
+  background-color: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --adm-color-text: #213547;
+  --adm-font-family: "Roboto,Arial,sans-serif";
+
+  --table-tr-color-background: rgba(97, 92, 92, 0.05);
+  --tab-bar-color-background: white;
+  --tab-bar-color: #333;
+  --adm-linear-gradient: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #fa71cd 100%);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  place-items: center;
+}
+
+ul, li, ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.adm-tab-bar-item {
+  padding-inline: 8px;
+  padding-block: 10px;
+}
+
+.adm-list-item {
+  padding-left: 0;
+}
+
+.adm-list-item-content-arrow {
+  padding-inline-end: 20px;
+}
+
+.adm-list-item > .adm-list-item-content {
+  padding-right: 0;
+}
+
+.adm-collapse-panel-header .adm-list-item-content-main {
+  margin-inline-start: var(--padding-left);
+  user-select: none;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --adm-color-text: rgba(255, 255, 255, 0.87);
+    --adm-color-primary: #3086ff;
+    --adm-color-background: #1a1a1a;
+    --adm-color-border: #2b2b2b;
+
+    --table-tr-color-background: rgb(29, 29, 29);
+    --tab-bar-color-background: #242424;
+    --tab-bar-color: rgba(190, 190, 199);
+    --adm-linear-gradient: linear-gradient(to right, #242424, #242424);
+
+    background-color: #242424;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+  
+  button {
+    background-color: #f9f9f9;
+  }
+}
