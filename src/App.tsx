@@ -1,7 +1,7 @@
 import './App.css'
 import routes from '@/router/index'
 import { useRoutes } from 'react-router-dom'
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
   const [enableDarkMode, setEnableDarkMode] = useState(true)
@@ -16,6 +16,12 @@ function App() {
     }
     document.documentElement.setAttribute('data-prefers-color-scheme', theme)
   })
+
+  useEffect(() => {
+    let isInitTheme = mediaQuery.matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-prefers-color-scheme', isInitTheme)
+  })
+
   // 路由
   const Views = () => useRoutes(routes)
   return <Views />
