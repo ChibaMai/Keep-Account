@@ -15,6 +15,7 @@
 
   --adm-color-text: #213547;
   --adm-font-family: "Roboto,Arial,sans-serif";
+  --adm-color-border: #ddd;
 
   --table-tr-color-background: rgba(97, 92, 92, 0.05);
   --tab-bar-color-background: white;
@@ -69,7 +70,7 @@ ul, li, ol {
     --adm-color-text: rgba(255, 255, 255, 0.87);
     --adm-color-primary: #3086ff;
     --adm-color-background: #1a1a1a;
-    --adm-color-border: #2b2b2b;
+    --adm-color-border: #ddd;
 
     --table-tr-color-background: rgb(29, 29, 29);
     --tab-bar-color-background: #242424;

@@ -5,6 +5,14 @@ import { BillOutline, PieOutline, UserOutline, AddSquareOutline } from 'antd-mob
 import { useState } from 'react'
 
 export function TabBars() {
+  const navigate = useNavigate()
+  const [activeKey, setActiveKey] = useState('home')
+  const setRouteActive = (value: string) => {
+    setActiveKey(value)
+    //路由跳转
+    navigate(value)
+  }
+
   const tabs = [
     {
       key: 'home',
@@ -27,15 +35,7 @@ export function TabBars() {
       icon: <UserOutline />,
     },
   ]
-
-  const navigate = useNavigate()
-  const [activeKey, setActiveKey] = useState('home')
-  const setRouteActive = (value: string) => {
-    setActiveKey(value)
-    //路由跳转
-    navigate(value)
-  }
-
+  
   // 渲染组建路由
   return (
     <div className={style.TabBars}>

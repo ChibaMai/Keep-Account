@@ -6,7 +6,8 @@ import { Collapse } from 'antd-mobile'
 import httpObj from '@/request';
 import { sleep } from './../../utils/demos-util'
 import dayjs from 'dayjs'
-import { message } from 'antd'
+import { message, Statistic } from 'antd'
+import { Statistics } from '@/components/Statistics/Statistics';
 
 interface IState{
   result: any
@@ -52,12 +53,12 @@ export default function Home() {
   const theadTitle = (
     <thead>
       <tr> 
-        <td style={{width: '10%'}}>分类</td>
-        <td style={{width: '15%'}}>金额</td>
-        <td style={{width: '16%'}}>支出 | 收入</td>
-        <td style={{width: '17%'}}>时间</td>
-        <td style={{width: '19%'}}>备注</td>
-        <td style={{width: '14%'}}>操作</td>
+        <th style={{width: '10%'}}>分类</th>
+        <th style={{width: '15%'}}>金额</th>
+        <th style={{width: '16%'}}>支出 | 收入</th>
+        <th style={{width: '17%'}}>时间</th>
+        <th style={{width: '19%'}}>备注</th>
+        <th style={{width: '14%'}}>操作</th>
       </tr>
     </thead>
   )
@@ -95,8 +96,9 @@ export default function Home() {
 
   return (
     <>
+      <Statistics />
       {/* 总支出收入日期 */}
-      <Header />
+      {/* <Header /> */}
       <div className={style.Home}>
         <Collapse accordion>
           {/* <Collapse accordion> */}
