@@ -31,8 +31,7 @@ const Charts: React.FC = () => {
     httpObj.get(`/echartsMonth/${value}`).then((response) => {
       setBarLineIncome(response.income)
       setBarLineExpenditure(response.expenditure)
-      console.log(response);
-      
+      // setBarLineExpenditure([200, 400, 646, 425, 536])
     }).catch(error => {
       throw error
     })

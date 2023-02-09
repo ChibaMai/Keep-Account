@@ -5,11 +5,14 @@ import style from './index.module.less'
 
 export function Statistics() {
   const [monthly, setMonthly] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+  // 月支出收入展示数据
   const [responseIncome, setResponseIncome] = useState([])
   const [responseExpenditure, setResponseExpenditure] = useState([])
   const [calculate, setCalculate] = useState([])
+  // 月收入支出统计 总和
   const [monthExpenses, setMonthExpenses] = useState(0)
   const [monthIncome, setMonthIncome] = useState(0)
+  // 年支出收入统计 总和
   const [incomeMoney, setIncomeMoney] = useState(0)
   const [expenditureMoney, setExpenditureMoney] = useState(0)
   const date = new Date()
@@ -17,9 +20,10 @@ export function Statistics() {
   useEffect(() => {
     init()
     RetrieveData()
-    Month()
+    Month((date.getMonth()) + 1)
   }, [])
 
+  // 月支出收入 详细展示
   const init = () => {
     let income: Array<any> = [],
       expenditure: Array<any> = [],
@@ -46,6 +50,7 @@ export function Statistics() {
     })
   }
 
+  // 年账单统计
   const RetrieveData = () => {
     httpObj.get(`/AnnualStatistics/${date.getFullYear()}`).then((response) => {
       setIncomeMoney(response.sumOfIncome)
@@ -55,11 +60,12 @@ export function Statistics() {
     })
   }
 
-  const Month = () => {
+  // 本月支出收入多少 月收入统计
+  const Month = (month: number) => {
     // 查询年数据 需要传入参数年
-    httpObj.get(`/MonthlyInquiryBill/2023&1`).then((response) => {
-      setMonthExpenses(response.Expenses)
-      setMonthIncome(response.Income)
+    httpObj.get(`/MonthlyInquiryBill/${date.getFullYear()}&${month}`).then((response) => {
+      setMonthExpenses(response.Expenses || 0)
+      setMonthIncome(response.Income || 0)
     }).catch((error) => {
       throw error
     })

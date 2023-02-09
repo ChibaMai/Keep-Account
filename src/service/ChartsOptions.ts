@@ -13,9 +13,9 @@ const ChartsOptions = {
   tooltip: {
     trigger: 'axis',
     borderWidth: 0,
-    backgroundColor: 'rgba(111, 111, 111, .75)',
+    backgroundColor: 'rgba(111, 111, 111, .65)',
     textStyle: {
-      color: '#fff'
+      color: '#fff',
     },
     axisPointer: {
       type: 'shadow',
@@ -44,7 +44,7 @@ const ChartsOptions = {
   lineLabel: {
     show: true,
     position: 'top',
-    textStyle: {
+    itemStyle: {
       fontSize: 20
     }
   },

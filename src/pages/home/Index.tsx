@@ -6,7 +6,7 @@ import { Collapse } from 'antd-mobile'
 import httpObj from '@/request';
 import { sleep } from './../../utils/demos-util'
 import dayjs from 'dayjs'
-import { message, Statistic } from 'antd'
+import { message } from 'antd'
 import { Statistics } from '@/components/Statistics/Statistics';
 
 interface IState{
@@ -24,7 +24,9 @@ export default function Home() {
   const MonthCapital = ['大写月份', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二']
 
   for(let i = startMont; i <= endMont; i++) {
-    MonthNum.push(i);
+    MonthNum.push(i)
+    // 排序
+    MonthNum.sort((x :number, y: number) => y-x )
   }
 
   useEffect(() => {
@@ -36,9 +38,9 @@ export default function Home() {
   }, [])
 
   // 请求数据
-  const RetrieveData = () => {
+  const RetrieveData = (item: any) => {
     // 查询年数据 需要传入参数年
-    httpObj.get(`/MonthlyInquiryBill/2023&1`).then((response) => {
+    httpObj.get(`/MonthlyInquiryBill/${dayjs().year()}&${item}`).then((response) => {
       setData(response)
     }).catch((error) => {
       throw error
@@ -85,9 +87,9 @@ export default function Home() {
                   duration: 1,
                   content: '删除成功',
                 })
-                RetrieveData()
+                RetrieveData(item.month)
               }).catch(error => { throw error })
-             }}>删除</a></td>
+            }}>删除</a></td>
           </tr>
         ))}
       </tbody>
@@ -105,8 +107,11 @@ export default function Home() {
           {MonthNum.map(item => (
             <Collapse.Panel
               key={`${item}`}
+              data-item={`${item}月账单合集`}
               title={`${nowDate.getFullYear()}年 ${MonthCapital[item]}月账单`}
-              onClick={RetrieveData}>
+              onClick={()=>{
+                RetrieveData(item)
+              }}>
               <table>
                 {theadTitle}
                 {DynamicContent}
