@@ -76,23 +76,23 @@ export function Statistics() {
       <thead>
         <tr>
           <th style={{ width: '22%' }}>统计</th>
-          <th style={{ width: '26%' }}>本日</th>
-          <th style={{ width: '26%' }}>本月</th>
-          <th style={{ width: '26%' }}>本年</th>
+          <th style={{ width: '26%' }}>{`本日 - [${date.getDate()}号]`}</th>
+          <th style={{ width: '26%' }}>{`${date.getMonth() + 1}月花销总和`}</th>
+          <th style={{ width: '26%' }}>{`${date.getFullYear()}年花销总和`}</th>
         </tr>
       </thead>
       <tbody>
         <tr style={{ backgroundColor: 'rgba(221,81,76,.115)', color: '#dd514c' }}>
           <td>收入</td>
           <td>0</td>
-          <td>{monthIncome}</td>
-          <td>{incomeMoney}</td>
+          <td data-money={monthIncome}>{monthIncome}</td>
+          <td data-money={incomeMoney}>{incomeMoney}</td>
         </tr>
         <tr style={{ backgroundColor: 'rgba(94,185,94,.115)', color: '#5eb95e' }}>
           <td>支出</td>
           <td>0</td>
-          <td>{monthExpenses}</td>
-          <td>{expenditureMoney}</td>
+          <td data-money={monthExpenses}>{monthExpenses}</td>
+          <td data-money={expenditureMoney}>{expenditureMoney}</td>
         </tr>
       </tbody>
     </table>
@@ -124,7 +124,7 @@ export function Statistics() {
         <tr style={{ backgroundColor: 'rgba(14,144,210,.115)', color: '#0b76ac' }}>
           <td>余额</td>
           {calculate.map(((item, index) => (
-            <td key={index}>{String(item) === 'NaN' ? '0' : item}</td>
+            <td key={index} data-money={index}>{String(item) === 'NaN' ? '0' : item}</td>
           )))}
         </tr>
       </tbody>
@@ -134,9 +134,9 @@ export function Statistics() {
   return (
     <>
       {/* closeable */}
-      <NoticeBar content='demo, 欢迎使用则茶记账!' color='alert' />
+      <NoticeBar content={`demo, 欢迎使用${date.getFullYear()}年则茶记账!`} color='alert' />
       {StatisticsContent}
-      <NoticeBar content='月记账统计!' color='info' />
+      <NoticeBar content='月账单统计!' color='info' />
       {MonthlyStatistics}
     </>
   )

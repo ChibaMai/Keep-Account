@@ -1,0 +1,77 @@
+{
+	"root": true,
+	"parser": "babel-eslint",
+	"env": {
+		"browser": true,
+		"node": true,
+		"es6": true
+	},
+	"globals": {
+    "document": false,
+    "escape": false,
+    "navigator": false,
+    "unescape": false,
+    "window": false,
+    "describe": true,
+    "before": true,
+    "it": true,
+    "expect": true,
+    "sinon": true
+  },
+	"plugins": [],
+	"rules": {
+		"indent": [2, 2],
+		"semi": [2, "never"],
+		"quotes": ["2", "single"],
+		"no-mixed-spaces-and-tabs": 2,
+		"no-extra-semi": [2],
+		"comma-dangle": [2, "never"],
+		"prettier/prettier": "error",
+		"new-cap": [2, {
+      "newIsCap": true,
+      "capIsNew": false
+    }],
+		"no-const-assign": 2,
+		"no-dupe-args": 2,
+		"no-dupe-class-members": 2,
+		"no-dupe-keys": 2,
+		"no-empty-pattern": 2,
+		"no-eval": 0,
+		"no-inner-declarations": [2, "functions"],
+		"no-lone-blocks": 2,
+		"no-multi-spaces": 2,
+		"no-multi-str": 2,
+		"no-multiple-empty-lines": [2, {
+			"max": 1
+		}],
+		"no-redeclare": 2,
+		"no-regex-spaces": 2,
+		"no-return-assign": [2, "except-parens"],
+		"no-self-assign": 2,
+		"no-self-compare": 2,
+		"no-sequences": 2,
+		"no-shadow-restricted-names": 2,
+		"no-spaced-func": 2,
+		"no-this-before-super": 2,
+		"no-trailing-spaces": 2,
+		"no-undef": 2,
+		"no-undef-init": 2,
+		"no-unexpected-multiline": 2,
+		"no-unmodified-loop-condition": 2,
+		"no-unused-vars": [2, {
+			"vars": "all",
+			"args": "none"
+		}],
+		"no-useless-escape": 0,
+		"no-whitespace-before-property": 2,
+		"no-with": 2,
+		"operator-linebreak": [2, "after", {
+			"overrides": {
+				"?": "before",
+				":": "before"
+			}
+		}],
+		"padded-blocks": [2, "never"],
+		"space-before-blocks": [2, "always"]
+	}
+}

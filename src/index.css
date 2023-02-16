@@ -6,21 +6,30 @@
   color-scheme: light dark;
   color: #213547;
   
-  background-color: #ffffff;
+  background-color: var(--ant-background-color);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --adm-color-text: #213547;
+  /* 其它主题颜色 */
+  --ant-background-color: #fff;
+  --ant-bg-secondary: #f3f4f6;
+  --ant-text: #374151;
+  --ant-text-secondary: #6b7280;
+  --ant-links: #6366f1;
+  --ant-headings: #1e293b;
+  --ant-highlight: #FFECB2;
+  --ant-code-text: #9D174D;
+
   --adm-font-family: "Roboto,Arial,sans-serif";
-  --adm-color-border: #ddd;
 
   --table-tr-color-background: rgba(97, 92, 92, 0.05);
   --tab-bar-color-background: white;
   --tab-bar-color: #333;
-  --adm-linear-gradient: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #fa71cd 100%);
+  --adm-color-border: #ddd;
+  --adm-linear-gradient: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
 }
 
 html, body {
@@ -78,6 +87,16 @@ ul, li, ol {
     --adm-linear-gradient: linear-gradient(to right, #242424, #242424);
 
     background-color: #242424;
+
+    /* 其它主题颜色 */
+    --ant-background-color: #1f242A;
+    --ant-bg-secondary: #323945;
+    --ant-text: #adb5bd;
+    --ant-text-secondary: #9CA3AF;
+    --ant-links: #91A7FF;
+    --ant-headings: #74c0fc;
+    --ant-highlight: #41C7C7;
+    --ant-code-text: #91A7FF;
   }
 
   a:hover {

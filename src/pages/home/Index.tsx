@@ -47,6 +47,30 @@ export default function Home() {
     })
   }
 
+  // 删除数据
+  const deleteThisBill = (bill: any) => {
+    const acknowledge = confirm('确定删除吗?')
+
+    if (!acknowledge) return
+
+    httpObj.get(`/deleteAll/${bill.time}&${bill.genre}`).then((response) => {
+      message.open({
+        type: 'success',
+        duration: 1,
+        content: '删除成功',
+      })
+      // 间隔 250 毫米后刷新
+      setTimeout(() => {
+        RetrieveData(bill.month)
+      }, 250);
+    }).catch(error => new Error(error))
+  }
+
+  // 修改账单
+  const modifyBill = (bill: any) => {
+    return console.log(bill, '正在开发中....')
+  }
+
   const loadData = async () => {
     await sleep(1500)
     setFinished(true)
@@ -76,20 +100,11 @@ export default function Home() {
             <td>{item.genre === 1 ? '支出' : '收入' }</td>
             <td>{dayjs.unix(item.time).format('YYYY-MM-DD HH:mm:ss')}</td>
             <td>{item.comment}</td>
-            <td>修改 | <a data-key={item.id} onClick={(e) => {
-              const cutover = confirm('确定删除吗?')
-              
-              if (!cutover) return
-              
-              httpObj.get(`/deleteAll/${item.time}&${item.genre}`).then((response) => {
-                message.open({
-                  type: 'success',
-                  duration: 1,
-                  content: '删除成功',
-                })
-                RetrieveData(item.month)
-              }).catch(error => { throw error })
-            }}>删除</a></td>
+            <td style={{ userSelect: 'none' }}>
+              <a data-key={item.id} onClick={e => { modifyBill(item) }}>修改</a> 
+              |
+              <a data-key={item.id} onClick={e => { deleteThisBill(item) }}>删除</a>
+            </td>
           </tr>
         ))}
       </tbody>
@@ -106,12 +121,17 @@ export default function Home() {
           {/* <Collapse accordion> */}
           {MonthNum.map(item => (
             <Collapse.Panel
+              style={{
+                transitionProperty: 'all',
+                transitionDuration: '250ms'
+              }}
               key={`${item}`}
               data-item={`${item}月账单合集`}
               title={`${nowDate.getFullYear()}年 ${MonthCapital[item]}月账单`}
               onClick={()=>{
                 RetrieveData(item)
-              }}>
+              }}
+            >
               <table>
                 {theadTitle}
                 {DynamicContent}

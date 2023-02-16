@@ -1,2 +1,2 @@
-ignores: ["@vue/cli-plugin-babel"]
+ignores: []
 skip-missing: true

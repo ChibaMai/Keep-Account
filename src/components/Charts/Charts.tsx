@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ReactECharts from 'echarts-for-react'
 import style from './index.module.less'
 import httpObj from '@/request'
-import ChartsOptions from '../../service/ChartsOptions'
+import ChartsOptions from './ChartsOptions'
 import { Stepper } from 'antd-mobile'
 
 // income expenditure
@@ -27,7 +27,7 @@ const Charts: React.FC = () => {
     echartsMonth(yearSelection)
   }, [])
 
-  const echartsMonth = (value:any) => {
+  const echartsMonth = (value: any) => {
     httpObj.get(`/echartsMonth/${value}`).then((response) => {
       setBarLineIncome(response.income)
       setBarLineExpenditure(response.expenditure)
@@ -37,7 +37,7 @@ const Charts: React.FC = () => {
     })
   }
 
-  const options = {
+  const ExpenditureOptions = {
     color: ChartsOptions.color,
     title: {
       text: `${yearSelection}年收入支出金额汇总`,
@@ -65,26 +65,23 @@ const Charts: React.FC = () => {
 
   return (
     <>
-      <div className={style.title}>
-        <Stepper
-          value={yearSelection}
-          inputReadOnly
-          min={2023} step={1}
-          style={{ width: '15%' }}
-          onChange={value => {
-            setYearSelection(value)
-            echartsMonth(value)
-          }}
-        />
-      </div>
-      <div data-title="柱状图">
+      <Stepper
+        className={style.title}
+        value={yearSelection}
+        inputReadOnly
+        min={2023} step={1}
+        style={{ width: '15%' }}
+        onChange={value => {
+          setYearSelection(value)
+          echartsMonth(value)
+        }}
+      />
+      <div data-title="年支出账单">
         <ReactECharts
           className={style.Charts}
-          option={options}
+          option={ExpenditureOptions}
           theme={`${window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'}`}
         />
-      </div>
-      <div className={style.MonthHistogram}>
       </div>
     </>
   )
